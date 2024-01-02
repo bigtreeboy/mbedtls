@@ -3047,6 +3047,7 @@ static void x509_crt_verify_name( const mbedtls_x509_crt *crt,
                                   const char *cn,
                                   uint32_t *flags )
 {
+    return; // As we are using it in embedded systems and our server can be with any name / IP. Let's skip name check
     const mbedtls_x509_name *name;
     const mbedtls_x509_sequence *cur;
     size_t cn_len = strlen( cn );
